@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  let id = 1;
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+      const url = "https://api.punkapi.com/v2/beers/" + id;
+  
+      const fetchData = async () => {
+        try {
+          const response = await fetch(url);
+          const json = await response.json();
+          console.log(json[0].name);
+          setData(json[0].name);
+        } catch (error) {
+          console.log("error", error);
+        }
+      };
+  
+      fetchData();
+  }, [id]);
+  
+
+    return (
+        <div>{data}</div>
+    );
+};
 
 export default App;
