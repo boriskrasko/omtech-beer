@@ -4,41 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Test API</title>
-  <style>
-    body {
-      color: #222;
-      font-family: sans-serif;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Select Beer</h1>
-  <input class="input" type="number" name="beerId" value="">
+  <input class="input" type="number" name="beerId" value="" min="0">
   <button onclick="getBeer(beerId)">Get Beer</button>
   <h2 class="beer-name">Beer: <span></span></h2>
   <p class="beer-tagline"><b>Tagline:</b> <span></span><p>
   <p class="beer-first_brewed">First brewed: <i><span></span></i></p>
   <p class="beer-description">Description: <span></span></p>
   <p class="beer-brewers_tips">Brewers tips: <span></span></p>
-  <script type="text/javascript">
-    let input = document.querySelector('.input');
-    let beerId = input.value;
-    input.addEventListener('change', () => beerId = input.value)
-    let get = (selector) => document.querySelector(selector);
-    async function getBeer(id) {
-    const url = `https://api.punkapi.com/v2/beers/${id}`
-    try {
-      const res = await fetch(url)
-      const data = await res.json()
-      get('.beer-name span').textContent = data[0].name;
-      get('.beer-tagline span').textContent = data[0].tagline;
-      get('.beer-first_brewed span').textContent = data[0].first_brewed;
-      get('.beer-description span').textContent = data[0].description;
-      get('.beer-brewers_tips span').textContent = data[0].brewers_tips;
-    } catch {
-      get('.beer-name span').textContent = ':( try another ID';
-    }
-  };
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
