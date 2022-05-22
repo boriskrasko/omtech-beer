@@ -22,16 +22,21 @@ const Data = ({id}:{id:number}) => {
 
   if (!data) {
     return (
-      <div>
-        <h1>Please enter correct beer id</h1>
-      </div>
-    );
+      <>
+      <p>Please enter beer id</p>
+      <h2>Bear: </h2>
+      <p>Tagline: </p>
+      <p>First brewed: </p>
+      <p>Description: </p>
+      <p>Brewers tips: </p>
+    </>
+    )
   }
   return (
     <>
       <h2>Bear: {data.name}</h2>
       <p>Tagline: {data.tagline}</p>
-      <p>First_brewed: {data.first_brewed}</p>
+      <p>First brewed: {data.first_brewed}</p>
       <p>Description: {data.description}</p>
       <p>Brewers tips: {data.brewers_tips}</p>
     </>
