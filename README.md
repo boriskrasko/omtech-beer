@@ -24,4 +24,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### Deploy 
 
-https://omtech-beer.netlify.app/
+https://omtech-beer.netlify.app/ (React + TS)
+
+or
+
+https://boriskrasko.github.io//omtech-beer/ (Native JS)
